@@ -32,46 +32,57 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// FUNÇÃO PARA PEGAR VARIÁVEIS DE CSS DO TEMA ATUAL
+// FUNÇÃO PARA PEGAR VARIÁVEIS DO CSS
 function getThemeVar(variable) {
   return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
 }
 
-// FUNÇÃO DE INICIALIZAÇÃO DO VANTA.JS
-let vantaEffect;
+// INICIALIZAÇÃO DO VANTA.JS
+let vantaEffect = null;
 
-function initVanta() {
+function initVantaSafe() {
+  const el = document.querySelector("#vanta-bg");
+  if (!el) return;
 
-  // SE JÁ TIVER UM VANTA RODANDO, SERÁ DESTRUÍDO YEAAAH
+  // VERIFICA SE CSS DO TEMA CARREGOU
+  const bg = getThemeVar("--vanta-bg");
+  const color = getThemeVar("--vanta-color");
+
+  // CSS AINDA NÃO APLICADO → tenta de novo
+  if (!bg || bg.length < 4 || !color || color.length < 4) {
+    return setTimeout(initVantaSafe, 120);
+  }
+
+  // DESTRUIR EFEITO EXISTENTE
   if (vantaEffect) vantaEffect.destroy();
 
+  // CRIAR NOVO EFEITO
   vantaEffect = VANTA.NET({
     el: "#vanta-bg",
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
+    minHeight: 200,
+    minWidth: 200,
 
-    // PEGANDO AS CORES DO TEMA ATUAL
-    color: parseInt(getThemeVar("--vanta-color").replace("#", "0x")),
-    backgroundColor: parseInt(getThemeVar("--vanta-bg").replace("#", "0x")),
-
-    // PEGANDO OS VALORES NUMÉRICOS DO TEMA
+    color: parseInt(color.replace("#", "0x")),
+    backgroundColor: parseInt(bg.replace("#", "0x")),
     spacing: parseFloat(getThemeVar("--vanta-spacing")),
     maxDistance: parseFloat(getThemeVar("--vanta-maxdistance")),
   });
 }
 
-// Inicializa o VANTA ao carregar a página
-window.addEventListener("DOMContentLoaded", initVanta);
+// INICIALIZA APÓS A PÁGINA COMPLETAR O LOAD
+window.addEventListener("load", () => {
+  setTimeout(initVantaSafe, 150);
+});
 
-// Destruir o efeito ao trocar de página
+// LIMPAR VANTA AO FECHAR A PÁGINA
 window.addEventListener("beforeunload", () => {
   if (vantaEffect) vantaEffect.destroy();
 });
 
-// NAVBAR SCROLL ANIMATION
+// NAVBAR SCROLL EFFECT
 const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
@@ -82,7 +93,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// SCROLL REVEAL ANIMATION
+// REVEAL NO SCROLL
 function revealOnScroll() {
   const reveals = document.querySelectorAll(".reveal");
 
@@ -114,13 +125,12 @@ function applySkillIcons() {
 
 applySkillIcons();
 
-// EXPANDIR SKILL CARDS
+//EXPANDIR SKILL CARDS
 document.querySelectorAll(".skill-card").forEach(card => {
   card.addEventListener("click", () => {
     card.classList.toggle("open");
   });
 
-  // CRIAR DETALHES DENTRO DO CARD
   const focus = Number(card.getAttribute("data-focus"));
   const tech = Number(card.getAttribute("data-tech"));
   const desc = card.getAttribute("data-desc");
@@ -134,10 +144,7 @@ document.querySelectorAll(".skill-card").forEach(card => {
     </div>
     <div class="skill-bullets">
       ${[1,2,3].map(n => `
-        <div 
-          class="skill-bullet level-${n} ${n <= focus ? "active" : ""}"
-          data-label="${n === 1 ? "Baixo" : n === 2 ? "Intermediário" : "Alto"}">
-        </div>
+        <div class="skill-bullet level-${n} ${n <= focus ? "active" : ""}" data-label="${n === 1 ? "Baixo" : n === 2 ? "Intermediário" : "Alto"}"></div>
       `).join("")}
     </div>
 
@@ -145,14 +152,9 @@ document.querySelectorAll(".skill-card").forEach(card => {
       <i data-feather="bar-chart-2" class="w-4"></i> Nível técnico
     </div>
     <div class="skill-bullets">
-      <div class="skill-bullets">
-        ${[1,2,3].map(n => `
-          <div 
-            class="skill-bullet level-${n} ${n <= tech ? "active" : ""}"
-            data-label="${n === 1 ? "Baixo" : n === 2 ? "Intermediário" : "Alto"}">
-          </div>
-        `).join("")}
-      </div>
+      ${[1,2,3].map(n => `
+        <div class="skill-bullet level-${n} ${n <= tech ? "active" : ""}" data-label="${n === 1 ? "Baixo" : n === 2 ? "Intermediário" : "Alto"}"></div>
+      `).join("")}
     </div>
 
     <div class="skill-detail-row" style="margin-top:12px;">

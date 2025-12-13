@@ -23,7 +23,7 @@ function loadTheme(themeName) {
   // REINICIA O VANTA.JS
   requestAnimationFrame(() => {
     setTimeout(() => {
-      initVanta();
+      initVantaSafe();
     }, 60);
   });
 }
