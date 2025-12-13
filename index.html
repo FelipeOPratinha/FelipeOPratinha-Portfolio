@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Felipe Aires • Portfólio</title>
     <!-- Favicon clássico (compatibilidade máxima) -->
-    <link rel="icon" href="./assets/images/logos/favicon.ico" sizes="any">
+    <link rel="icon" href="./src/assets/images/logos/favicon.ico" sizes="any">
 
     <!-- Favicon SVG moderno -->
-    <link rel="icon" href="./assets/images/logos/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="./src/assets/images/logos/favicon.svg" type="image/svg+xml">
 
     <!-- PNG de fallback para navegadores antigos -->
-    <link rel="icon" type="image/png" sizes="96x96" href="./assets/images/logos/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./src/assets/images/logos/favicon-96x96.png">
 
     <!-- Vanta.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
@@ -28,7 +28,7 @@
     <link id="theme-stylesheet" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./styles/custom.css">
+    <link rel="stylesheet" href="./src/styles/custom.css">
 
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
@@ -40,7 +40,7 @@
     <nav id="navbar" class="fixed w-full top-0 left-0 px-6 py-1 flex justify-between items-center transition-all duration-300 border-b border-[var(--glass-border)] bg-[var(--glass-bg)] z-50">
 
       <!-- LOGO / NOME -->
-      <img src="./assets/images/logos/logo-felipe-aires.png" alt="Logo FA" class="logo-spin w-10 h-10 object-contain cursor-pointer" onclick="window.location.href='#inicio'">
+      <img src="./src/assets/images/logos/logo-felipe-aires.png" alt="Logo FA" class="logo-spin w-10 h-10 object-contain cursor-pointer" onclick="window.location.href='#inicio'">
 
       <!-- MENU DESKTOP -->
       <ul class="hidden lg:flex text-sm">
@@ -207,7 +207,7 @@
       
       <!-- FOTO -->
       <div class="logo-spin w-fit h-60 my-14 mx-auto flex justify-center">
-        <img src="./assets/images/sobremim/felipe1.jpg" class="object-cover rounded-full photo-border text-center content-center" alt="Foto de Felipe Aires">
+        <img src="./src/assets/images/sobremim/felipe1.jpg" class="object-cover rounded-full photo-border text-center content-center" alt="Foto de Felipe Aires">
       </div>
 
       <div class="glass-card max-w-4xl mx-auto p-4 md:p-10 shadow-lg hover:shadow-[0_0_15px_var(--glow-color)] hover:scale-[1.02] transition">
@@ -500,8 +500,8 @@
 
       <!-- BOTÕES DE DOWNLOAD -->
       <div class="flex flex-col md:flex-row gap-2 mt-8 items-center md:justify-center">
-        <a href="./assets/docs/curriculos/3-curriculo-felipe-aires-joaquim-modelo-objetivo-sem-foto.pdf" download class="min-w-fit w-52 flex justify-center gap-2 px-6 py-3 border border-[var(--border-color)] rounded-full hover:bg-[var(--card-bg)] transition"><i data-feather="download" class="w-5"></i> Currículo (PDF)</a>
-        <a href="./assets/docs/curriculos/curriculo-felipe-aires-joaquim.docx" download class="min-w-fit w-52 flex justify-center gap-2 px-6 py-3 border border-[var(--border-color)] rounded-full hover:bg-[var(--card-bg)] transition"><i data-feather="download" class="w-5"></i> Currículo (WORD)</a>
+        <a href="./src/assets/docs/curriculos/3-curriculo-felipe-aires-joaquim-modelo-objetivo-sem-foto.pdf" download class="min-w-fit w-52 flex justify-center gap-2 px-6 py-3 border border-[var(--border-color)] rounded-full hover:bg-[var(--card-bg)] transition"><i data-feather="download" class="w-5"></i> Currículo (PDF)</a>
+        <a href="./src/assets/docs/curriculos/curriculo-felipe-aires-joaquim.docx" download class="min-w-fit w-52 flex justify-center gap-2 px-6 py-3 border border-[var(--border-color)] rounded-full hover:bg-[var(--card-bg)] transition"><i data-feather="download" class="w-5"></i> Currículo (WORD)</a>
       </div>
 
       <!-- TIMELINE -->
@@ -720,10 +720,10 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script src="./scripts/themeManager.js"></script>
-    <script src="./scripts/githubApi.js"></script>
-    <script src="./scripts/animations.js"></script>
-    <script src="./scripts/certificates.js"></script>
+    <script src="./src/scripts/themeManager.js"></script>
+    <script src="./src/scripts/githubApi.js"></script>
+    <script src="./src/scripts/animations.js"></script>
+    <script src="./src/scripts/certificates.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {

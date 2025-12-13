@@ -55,7 +55,7 @@ async function carregarCertificados() {
 
   for (const categoria of categorias) {
 
-    const jsonPath = `./assets/docs/certificados/${categoria.pasta}/index.json`;
+    const jsonPath = `./src/assets/docs/certificados/${categoria.pasta}/index.json`;
 
     let lista = [];
     try {
@@ -69,7 +69,7 @@ async function carregarCertificados() {
 
     for (let i = 0; i < lista.length; i++) {
       const pdfName = lista[i];
-      const caminho = `./assets/docs/certificados/${categoria.pasta}/${pdfName}`;
+      const caminho = `./src/assets/docs/certificados/${categoria.pasta}/${pdfName}`;
 
       // GERAR PREVIEW
       const preview = await gerarPreviewPDF(caminho);
@@ -79,7 +79,7 @@ async function carregarCertificados() {
 
       card.innerHTML = `
         <div class="cert-preview mb-4">
-          <img src="${preview}" class="cert-img" onerror="this.src='./assets/docs/certificados/preview-default.png'">
+          <img src="${preview}" class="cert-img" onerror="this.src='./src/assets/docs/certificados/preview-default.png'">
           <div class="cert-icon">
             <i data-feather="${categoria.icon}" class="w-5"></i>
           </div>

@@ -10,7 +10,7 @@ themeButton.addEventListener("click", () => {
 // CARREGAR TEMA
 function loadTheme(themeName) {
   const link = document.getElementById("theme-stylesheet");
-  link.href = `./themes/theme-${themeName}.css`;
+  link.href = `./src/themes/theme-${themeName}.css`;
   localStorage.setItem("selected-theme", themeName);
 
   updateActiveBullet(themeName);

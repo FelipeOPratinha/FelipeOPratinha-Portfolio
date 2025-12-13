@@ -41,9 +41,9 @@ async function carregarRepos() {
 
     // CARROUSSEL DE IMAGENS
     const imagens = [
-      `./assets/images/projetos/${repo.name}/img/1.png`,
-      `./assets/images/projetos/${repo.name}/img/2.png`,
-      `./assets/images/projetos/${repo.name}/img/3.png`
+      `./src/assets/images/projetos/${repo.name}/img/1.png`,
+      `./src/assets/images/projetos/${repo.name}/img/2.png`,
+      `./src/assets/images/projetos/${repo.name}/img/3.png`
     ];
 
     const card = document.createElement("div");
@@ -120,13 +120,13 @@ async function carregarRepos() {
 
       // CAMINHOS DAS MÍDIAS
       const imagensGrandes = [
-        `./assets/images/projetos/${repo.name}/img/1.png`,
-        `./assets/images/projetos/${repo.name}/img/2.png`,
-        `./assets/images/projetos/${repo.name}/img/3.png`
+        `./src/assets/images/projetos/${repo.name}/img/1.png`,
+        `./src/assets/images/projetos/${repo.name}/img/2.png`,
+        `./src/assets/images/projetos/${repo.name}/img/3.png`
       ];
 
       const videos = [
-        `./assets/images/projetos/${repo.name}/vid/1.mp4`
+        `./src/assets/images/projetos/${repo.name}/vid/1.mp4`
       ];
 
       // CRIAR HTML DAS MÍDIAS
