@@ -1,0 +1,30 @@
+:root {
+  /* VARIÁVEIS DE COR DO TEXTO */
+  --text-color: #c8ffda;
+
+  /* VARIÁVEIS DE COR DO FUNDO */
+  --bg-color: #000000;
+  --bg-color-github: #000000;
+
+  /* VARIÁVEIS DE COR DO BOTÃO */
+  --primary: #08b735;
+  --primary-hover: #06641f;
+
+  /* VARIÁVEIS DE COR DOS CARDS E BORDAS */
+  --card-bg: rgba(0, 20, 0, 0.65);
+  --border-color: rgba(0, 255, 65, 0.25);
+
+  /* EFEITO DE GLOW PADRÃO */
+  --glow-color: rgba(0, 255, 65, 0.45);
+
+  /* GLASSMORFISMO DA NAVBAR */
+  --glass-border: rgba(0, 255, 65, 0.3);
+  --glass-bg: rgba(0, 15, 0, 0.45);
+
+  /* VARIÁVEIS DE COR E CONFIGURAÇÃO DO FUNDO VANTA.JS */
+  --vanta-bg: #000000;
+  --vanta-color: #00ff41;
+  --vanta-points: 10;
+  --vanta-maxdistance: 22;
+  --vanta-spacing: 18;
+}

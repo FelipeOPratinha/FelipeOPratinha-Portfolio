@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Felipe Aires • Portfólio</title>
+    <!-- Favicon clássico (compatibilidade máxima) -->
+    <link rel="icon" href="./assets/images/logos/favicon.ico" sizes="any">
+
+    <!-- Favicon SVG moderno -->
+    <link rel="icon" href="./assets/images/logos/favicon.svg" type="image/svg+xml">
+
+    <!-- PNG de fallback para navegadores antigos -->
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/images/logos/favicon-96x96.png">
+
+    <!-- Vanta.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://unpkg.com/vanta/dist/vanta.net.min.js"></script>
+
+    <!-- PDF.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>pdfjsLib.GlobalWorkerOptions.workerSrc ="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";</script>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tema selecionado -->
+    <link id="theme-stylesheet" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles/custom.css">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body class="text-[var(--text-color)] bg-[var(--bg-color)]">
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed w-full top-0 left-0 px-6 py-1 flex justify-between items-center transition-all duration-300 border-b border-[var(--glass-border)] bg-[var(--glass-bg)] z-50">
+
+      <!-- LOGO / NOME -->
+      <img src="./assets/images/logos/logo-felipe-aires.png" alt="Logo FA" class="logo-spin w-10 h-10 object-contain cursor-pointer" onclick="window.location.href='#inicio'">
+
+      <!-- MENU DESKTOP -->
+      <ul class="hidden lg:flex text-sm">
+        <li class="nav-item flex items-center gap-2 hover:text-[var(--primary)] hover:bg-[var(--bg-color)] rounded-lg transition cursor-pointer">
+          <a href="#inicio" class="w-fit py-3 px-4 flex items-center gap-2">
+            <i data-feather="home" class="w-5"></i> Início
+          </a>
+        </li>
+        <li class="nav-item flex items-center gap-2 hover:text-[var(--primary)] hover:bg-[var(--bg-color)] rounded-lg transition cursor-pointer">
+          <a href="#sobremim" class="w-fit py-3 px-4 flex items-center gap-2">
+            <i data-feather="user" class="w-5"></i> Sobre mim
+          </a>
+        </li>
+        <li class="nav-item flex items-center gap-2 hover:text-[var(--primary)] hover:bg-[var(--bg-color)] rounded-lg transition cursor-pointer">
+          <a href="#servicos" class="w-fit py-3 px-4 flex items-center gap-2">
+            <i data-feather="briefcase" class="w-5"></i> Serviços
+          </a>
+        </li>
+        <li class="nav-item flex items-center gap-2 hover:text-[var(--primary)] hover:bg-[var(--bg-color)] rounded-lg transition cursor-pointer">
+          <a href="#projetos" class="w-fit py-3 px-4 flex items-center gap-2">
+            <i data-feather="book" class="w-5"></i> Projetos
+          </a>
+        </li>
+        <li class="nav-item flex items-center gap-2 hover:text-[var(--primary)] hover:bg-[var(--bg-color)] rounded-lg transition cursor-pointer">
+          <a href="#jornada" class="w-fit py-3 px-4 flex items-center gap-2">
+            <i data-feather="file-text" class="w-5"></i> Jornada
+          </a>
+        </li>
+        <li class="nav-item flex items-center gap-2 hover:text-[var(--primary)] hover:bg-[var(--bg-color)] rounded-lg transition cursor-pointer">
+          <a href="#certificados" class="w-fit py-3 px-4 flex items-center gap-2">
+            <i data-feather="award" class="w-5"></i> Certificados
+          </a>
+        </li>
+        <li class="nav-item flex items-center gap-2 hover:text-[var(--primary)] hover:bg-[var(--bg-color)] rounded-lg transition cursor-pointer">
+          <a href="#contatos" class="w-fit py-3 px-4 flex items-center gap-2">
+            <i data-feather="phone" class="w-5"></i> Contato
+          </a>
+        </li>
+      </ul>
+
+      <div class="py-1 flex items-center gap-2">
+        <!-- ÍCONE DE TEMA (DESKTOP E MOBILE) -->
+        <button id="themeButton" class="py-2 px-2 text-[var(--text-color)] hover:text-[var(--primary)] hover:bg-[var(--bg-color)] rounded-lg transition">
+          <i data-feather="sun"></i>
+        </button>
+
+        <!-- MENU MOBILE / HAMBURGER -->
+        <button id="openMenu" class="py-2 px-2 lg:hidden text-[var(--text-color)] hover:text-[var(--primary)] hover:bg-[var(--bg-color)] rounded-lg transition">
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- DROPDOWN DE TEMAS -->
+    <div id="themeDropdown" class="hidden fixed w-44 right-6 mt-20 p-4 border border-[var(--glass-border)] bg-[var(--card-bg)] rounded-lg z-50">
+
+      <p class="text-sm text-gray-400 mb-2 text-center">Temas</p>
+
+      <ul class="flex flex-col gap-2 overflow-y-auto max-h-80">
+
+        <li data-theme="default" 
+            class="dropdown-item flex items-center gap-2 cursor-pointer hover:text-[var(--primary)] transition">
+          <span class="bullet hidden">•</span> Padrão
+        </li>
+
+        <li data-theme="arc-raiders" 
+            class="dropdown-item flex items-center gap-2 cursor-pointer hover:text-[var(--primary)] transition">
+          <span class="bullet hidden">•</span> Arc Raiders
+        </li>
+
+        <li data-theme="cyberpunk" 
+            class="dropdown-item flex items-center gap-2 cursor-pointer hover:text-[var(--primary)] transition">
+          <span class="bullet hidden">•</span> Cyberpunk
+        </li>
+
+        <li data-theme="matrix" 
+            class="dropdown-item flex items-center gap-2 cursor-pointer hover:text-[var(--primary)] transition">
+          <span class="bullet hidden">•</span> Matrix
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- SIDEBAR MOBILE -->
+    <div id="sidebar" class="fixed top-0 right-[-300px] w-64 h-full bg-[var(--card-bg)] border-l border-[var(--border-color)] shadow-xl p-6 flex flex-col gap-6 transition-all duration-300 z-50">
+
+      <button id="closeMenu" class="ml-auto mb-2">
+        <i data-feather="x"></i>
+      </button>
+
+      <ul class="flex flex-col gap-6 text-md overflow-y-auto">
+        <li class="sidebar-item flex items-center gap-3 hover:text-[var(--primary)] cursor-pointer rounded-lg">
+          <a href="#inicio" class="w-full flex items-center gap-2 p-3">
+            <i data-feather="home"></i> Início
+          </a>
+        </li>
+        <li class="sidebar-item flex items-center gap-3 hover:text-[var(--primary)] cursor-pointer rounded-lg">
+          <a href="#sobremim" class="w-full flex items-center gap-2 p-3">
+            <i data-feather="user"></i> Sobre mim
+          </a>
+        </li>
+        <li class="sidebar-item flex items-center gap-3 hover:text-[var(--primary)] cursor-pointer rounded-lg">
+          <a href="#servicos" class="w-full flex items-center gap-2 p-3">
+            <i data-feather="briefcase"></i> Serviços
+          </a>
+        </li>
+        <li class="sidebar-item flex items-center gap-3 hover:text-[var(--primary)] cursor-pointer rounded-lg">
+          <a href="#projetos" class="w-full flex items-center gap-2 p-3">
+            <i data-feather="tool"></i> Projetos
+          </a>
+        </li>
+        <li class="sidebar-item flex items-center gap-3 hover:text-[var(--primary)] cursor-pointer rounded-lg">
+          <a href="#jornada" class="w-full flex items-center gap-2 p-3">
+            <i data-feather="file-text"></i> Jornada
+          </a>
+        </li>
+        <li class="sidebar-item flex items-center gap-3 hover:text-[var(--primary)] cursor-pointer rounded-lg">
+          <a href="#certificados" class="w-full flex items-center gap-2 p-3">
+            <i data-feather="star"></i> Certificados
+          </a>
+        </li>
+        <li class="sidebar-item flex items-center gap-3 hover:text-[var(--primary)] cursor-pointer rounded-lg">
+          <a href="#contatos" class="w-full flex items-center gap-2 p-3">
+            <i data-feather="phone"></i> Contato
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- HERO SECTION -->
+    <header id="inicio" class="reveal fade-up relative min-h-screen flex items-center justify-center text-center px-5 overflow-hidden border-b border-[var(--glass-border)]">
+
+      <!-- Container onde Vanta.js será renderizado -->
+      <div id="vanta-bg" class="absolute inset-0 z-0"></div>
+
+      <!-- Conteúdo -->
+      <div class="relative z-10 py-16 flex flex-col justify-center items-center">
+        <h1 class="reveal fade-up text-2xl md:text-3xl font-bold mb-4">
+          Olá, me chamo <span class="text-[var(--primary)]">Felipe Aires</span>
+        </h1>
+
+        <h2 class="text-sm md:text-xl text-gray-300 mb-10 typing-text">
+          Desenvolvedor Fullstack em Formação
+        </h2>
+
+        <div class="flex gap-4">
+          <a href="#sobremim" class="px-6 py-3 border border-[var(--border-color)] rounded-full hover:bg-[var(--card-bg)] transition">
+            Ver sobre mim
+          </a>
+          <a href="#projetos" class="px-6 py-3 bg-[var(--primary)] hover:bg-[var(--primary-hover)] rounded-full transition">
+            Ver projetos
+          </a>
+        </div>
+      </div>
+
+    </header>
+
+    <!-- SOBRE MIM -->
+    <section id="sobremim" class="reveal fade-up min-h-screen pt-24 px-5">
+
+      <!-- TÍTULO -->
+      <h2 class="text-2xl font-semibold text-center mx-auto py-4 my-6 max-w-4xl">Sobre mim</h2>
+      <div class="h-0.5 mx-auto bg-[var(--glass-border)] rounded-full max-w-4xl"></div>
+      
+      <!-- FOTO -->
+      <div class="logo-spin w-fit h-60 my-14 mx-auto flex justify-center">
+        <img src="./assets/images/sobremim/felipe1.jpg" class="object-cover rounded-full photo-border text-center content-center" alt="Foto de Felipe Aires">
+      </div>
+
+      <div class="glass-card max-w-4xl mx-auto p-4 md:p-10 shadow-lg hover:shadow-[0_0_15px_var(--glow-color)] hover:scale-[1.02] transition">
+        
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-10">
+
+
+          <!-- TEXTO -->
+          <div class="text-gray-300 leading-relaxed text-justify text-sm md:text-lg">
+            
+            <p class="mb-4">
+              Olá! Meu nome é <span class="text-[var(--primary)]">Felipe Aires</span>, tenho 23 anos e sou um desenvolvedor fullstack em formação. 
+              Estou cursando Análise e Desenvolvimento de Sistemas na Fatec Mogi das Cruzes e sou apaixonado por criar soluções modernas, úteis e eficientes.
+            </p>
+
+            <p class="mb-4">
+              Minha jornada na programação começou há alguns anos, e desde então tenho me aprofundado em tecnologias como 
+              <span class="text-[var(--primary)]">JavaScript, TypeScript, PHP, HTML, CSS</span>, além de desenvolvimento mobile com 
+              <span class="text-[var(--primary)]">React Native</span> e estilização com <span class="text-[var(--primary)]">Tailwind</span> e <span class="text-[var(--primary)]">Bootstrap</span>.
+            </p>
+
+            <p>
+              Também tenho interesse nas áreas de <span class="text-[var(--primary)]">desenvolvimento de jogos</span>, 
+              <span class="text-[var(--primary)]">inteligência artificial</span> e automação.  
+              Acredito profundamente que tecnologia muda vidas e estou trabalhando todos os dias para fazer parte dessa mudança.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="reveal fade-up min-h-screen pt-24 px-5">
+
+      <!-- TÍTULO -->
+      <h2 class="text-2xl font-semibold text-center mx-auto py-4 my-6 max-w-4xl">Serviços e Habilidades</h2>
+      <div class="h-0.5 mx-auto bg-[var(--glass-border)] rounded-full max-w-4xl"></div>
+
+      <!-- GRID DE SERVIÇOS -->
+      <div class="max-w-5xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+        <div class="service-card reveal fade-up">
+          <div class="service-icon mb-4">
+            <i data-feather="code" class="w-6"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary)]">Desenvolvimento Web</h3>
+          <p class="text-gray-300 text-justify">
+            Criação de sistemas completos, sites modernos, dashboards e aplicações web responsivas usando tecnologias atuais.
+          </p>
+        </div>
+
+        <div class="service-card reveal fade-up">
+          <div class="service-icon mb-4">
+            <i data-feather="smartphone" class="w-6"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary)]">Desenvolvimento Mobile</h3>
+          <p class="text-gray-300 text-justify">
+            Aplicativos para Android e iOS usando React Native, desde protótipos até apps completos para empresas e negócios.
+          </p>
+        </div>
+
+        <div class="service-card reveal fade-up">
+          <div class="service-icon mb-4">
+            <i data-feather="camera" class="w-6"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary)]">Edição de Foto e Vídeo</h3>
+          <p class="text-gray-300 text-justify">
+            Criação de banners, materiais visuais, thumbnails e edições simples e intermediárias para redes sociais e projetos.
+          </p>
+        </div>
+
+        <div class="service-card reveal fade-up">
+          <div class="service-icon mb-4">
+            <i data-feather="cpu" class="w-6"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary)]">Suporte e Hardware</h3>
+          <p class="text-gray-300 text-justify">
+            Montagem de computadores, formatação, instalação de sistemas e assistência técnica a usuários.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- HARD SKILLS -->
+      <h3 class="text-2xl font-semibold text-center mt-10 mb-4" title="Habilidades técnicas">Hard Skills</h3>
+      <div class="h-0.5 mx-auto bg-[var(--glass-border)] rounded-full max-w-4xl"></div>
+      
+      <h2 class="text-lg text-[var(--primary)] text-center mt-6 mb-6">Linguagens</h2>
+
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+
+        <div class="skill-card reveal fade-up" data-icon="JavaScript" data-focus="3" data-tech="2" data-desc="JavaScript atualmente é minha principal linguagem, onde me sinto mais confortável criando tanto frontend quanto backend.">
+          <div class="skill-title">
+            JavaScript
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="TypeScript" data-focus="3" data-tech="2" data-desc="TypeScript me permite estruturar melhor meus projetos e evitar erros comuns, costumo usar bastante em aplicações modernas.">
+          <div class="skill-title">
+            TypeScript
+          </div>
+        </div>
+        
+        <div class="skill-card reveal fade-up" data-icon="PHP-Dark" data-focus="2" data-tech="2" data-desc="PHP foi a primeira linguagem pela qual desenvolvi paixão, muito por conta da minha experiência no estágio na prefeitura.">
+          <div class="skill-title">
+            PHP
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="Java-Dark" data-focus="2" data-tech="1" data-desc="Java foi uma linguagem que utilizei bastante na faculdade, mas hoje não a utilizo com tanta frequência.">
+          <div class="skill-title">
+            Java
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="CPP" data-focus="1" data-tech="1" data-desc="C++ foi minha primeira linguagem de programação, mas tive pouco tempo de prática com ela, apesar de ter realizado algumas tarefas na faculdade.">
+          <div class="skill-title">
+            C++
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="HTML" data-focus="3" data-tech="2" data-desc="Tenho domínio legal de HTML, conhecendo bem sua estrutura e tags. Uso com muita frequência nos meus projetos e sempre busco aprender mais.">
+          <div class="skill-title">
+            HTML 5
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="CSS" data-focus="3" data-tech="2" data-desc="CSS sempre foi meu parquinho de diversões, quando aprendi a usar, queria estilizar tudo e testar coisas novas o tempo todo.">
+          <div class="skill-title">
+            CSS 3
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="text-lg text-[var(--primary)] text-center mt-6 mb-6">Frameworks</h2>
+
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+
+        <div class="skill-card reveal fade-up" data-icon="React-Dark" data-focus="3" data-tech="1" data-desc="Utilizei no meu último projeto da faculdade e gostei demais da experiência, certamente vou utilizá-lo bastante em novos projetos.">
+          <div class="skill-title">
+            React Native
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="TailwindCSS-Dark" data-focus="3" data-tech="2" data-desc="Tailwind é meu melhor amigo para estilização rápida, moderna e responsiva, foi literalmente minha primeira evolução em relação ao CSS.">
+          <div class="skill-title">
+            Tailwind CSS
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="Bootstrap" data-focus="2" data-tech="2" data-desc="Conheço bem o Bootstrap, pois o utilizei no meu projeto de estágio e obtive ótimos resultados com ele.">
+          <div class="skill-title">
+            Bootstrap
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="text-lg text-[var(--primary)] text-center mt-6 mb-6">Banco de Dados</h2>
+
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+
+        <div class="skill-card reveal fade-up" data-icon="PostgreSQL-Dark" data-focus="3" data-tech="2" data-desc="PostgreSQL é meu banco preferido e normalmente é a primeira opção que considero ao iniciar um projeto.">
+          <div class="skill-title">
+            PostgreSQL
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="MySQL-Dark" data-focus="2" data-tech="1" data-desc="MySQL é amplamente utilizado no mercado, tive boas experiências com ele em tarefas da faculdade e também no desenvolvimento do meu TCC.">
+          <div class="skill-title">
+            MySQL
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="Firebase-Dark" data-focus="1" data-tech="1" data-desc="Descobri o Firebase recentemente, e percebi que ele oferece funcionalidades muito práticas e úteis.">
+          <div class="skill-title">
+            Firebase
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="text-lg text-[var(--primary)] text-center mt-6 mb-6">Ferramentas e Utilidades</h2>
+
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+
+        <div class="skill-card reveal fade-up" data-icon="Github-Dark" data-focus="3" data-tech="2" data-desc="GitHub é uma plataforma que estou focado em dominar, as possibilidades e vantagens que ela oferece são incríveis.">
+          <div class="skill-title">
+            GitHub
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="Git" data-focus="3" data-tech="2" data-desc="Git se tornou indispensável para mim, permitindo manter o versionamento dos meus projetos de forma organizada e segura.">
+          <div class="skill-title">
+            Git
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="Photoshop" data-focus="2" data-tech="1" data-desc="No Photoshop não sou profissional, mas consigo criar e editar imagens quando necessário para algum projeto.">
+          <div class="skill-title">
+            Photoshop
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="Illustrator" data-focus="2" data-tech="1" data-desc="Tenho utilizado bastante o Illustrator recentemente, principalmente para vetorização de imagens usadas em projetos.">
+          <div class="skill-title">
+            Illustrator
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="Figma-Dark" data-focus="2" data-tech="1" data-desc="Pretendo estudar o Figma mais profundamente, pois é uma ferramenta poderosa para estruturar e planejar projetos antes do desenvolvimento.">
+          <div class="skill-title">
+            Figma
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SOFT SKILLS -->
+      <h3 class="text-2xl font-semibold text-center mt-10 mb-4" title="Habilidades interpessoais">Soft Skills</h3>
+      <div class="h-0.5 mx-auto bg-[var(--glass-border)] rounded-full max-w-4xl"></div>
+
+      <h2 class="text-lg text-[var(--primary)] text-center mt-6 mb-6">Pessoais</h2>
+
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+
+        <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="2" data-desc="Tenho facilidade para me comunicar de forma clara, o que ajuda bastante na colaboração com equipes e clientes.">
+          <div class="skill-title">
+            Comunicação
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="3" data-desc="Busco sempre entender a perspectiva das pessoas ao meu redor, criando um ambiente mais colaborativo e respeitoso.">
+          <div class="skill-title">
+            Empatia
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="3" data-desc="Trabalhar em equipe é algo que valorizo muito, sempre contribuindo para o grupo com proatividade e apoio quando necessário.">
+          <div class="skill-title">
+            Trabalho em equipe
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="2" data-desc="Gosto de analisar situações com calma e encontrar soluções práticas e eficientes, mesmo em cenários complexos.">
+          <div class="skill-title">
+            Resolução de problemas
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="3" data-desc="Procuro manter meus projetos, tarefas e rotinas bem organizados, o que me ajuda a trabalhar com maior foco e produtividade.">
+          <div class="skill-title">
+            Organização
+          </div>
+        </div>
+
+        <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="1" data-desc="No início, tive dificuldade para evoluir, mas com o tempo aprendi a pesquisar de forma mais eficiente e hoje absorvo novos conceitos com mais rapidez.">
+          <div class="skill-title">
+            Aprendizagem rápida
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="reveal fade-up min-h-screen pt-24 px-5">
+
+      <!-- TÍTULO -->
+      <h2 class="text-2xl font-semibold text-center mx-auto py-4 my-6 max-w-4xl">Projetos</h2>
+      <div class="h-0.5 mx-auto bg-[var(--glass-border)] rounded-full max-w-4xl"></div>
+      
+      <!-- GRID DE PROJETOS -->
+      <div id="repos-container" class="max-w-5xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
+
+    </section>
+
+    <!-- JORNADA -->
+    <section id="jornada" class="reveal fade-up min-h-screen pt-24 px-5">
+
+      <!-- TÍTULO -->
+      <h2 class="text-2xl font-semibold text-center mx-auto py-4 my-6 max-w-4xl">Jornada</h2>
+      <div class="h-0.5 mx-auto bg-[var(--glass-border)] rounded-full max-w-4xl"></div>
+
+      <!-- BOTÕES DE DOWNLOAD -->
+      <div class="flex flex-col md:flex-row gap-2 mt-8 items-center md:justify-center">
+        <a href="./assets/docs/curriculos/3-curriculo-felipe-aires-joaquim-modelo-objetivo-sem-foto.pdf" download class="min-w-fit w-52 flex justify-center gap-2 px-6 py-3 border border-[var(--border-color)] rounded-full hover:bg-[var(--card-bg)] transition"><i data-feather="download" class="w-5"></i> Currículo (PDF)</a>
+        <a href="./assets/docs/curriculos/curriculo-felipe-aires-joaquim.docx" download class="min-w-fit w-52 flex justify-center gap-2 px-6 py-3 border border-[var(--border-color)] rounded-full hover:bg-[var(--card-bg)] transition"><i data-feather="download" class="w-5"></i> Currículo (WORD)</a>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="timeline max-w-4xl mx-auto relative">
+
+        <div class="timeline-item reveal fade-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-card">
+            <h3 class="timeline-year">Agosto - 2020</h3>
+            <p class="timeline-text">
+              Início da minha trajetória em TI ao ingressar no curso de Análise e Desenvolvimento de Sistemas na FATEC Mogi das Cruzes.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal fade-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-card">
+            <h3 class="timeline-year">Setembro - 2023</h3>
+            <p class="timeline-text">
+              Conquista do meu primeiro estágio na Secretaria Municipal de Agricultura e Abastecimento de Mogi das Cruzes.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal fade-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-card">
+            <h3 class="timeline-year">Setembro - 2023</h3>
+            <p class="timeline-text">
+              Desenvolvimento do sistema web Mogi AgroMapa e participação em diversos projetos internos.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal fade-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-card">
+            <h3 class="timeline-year">Maio - 2025</h3>
+            <p class="timeline-text">
+              Conclusão do estágio, entrega do TCC para conclusão da minha faculdade.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CERTIFICADOS -->
+    <section id="certificados" class="reveal fade-up min-h-screen pt-24 px-5">
+
+      <!-- TÍTULO -->
+      <h2 class="text-2xl font-semibold text-center mx-auto py-4 my-6 max-w-4xl">Certificados</h2>
+      <div class="h-0.5 mx-auto bg-[var(--glass-border)] rounded-full max-w-4xl"></div>
+
+      <!-- GRID DE CERTIFICADOS -->
+      <div id="certificados-container" class="max-w-5xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
+
+    </section>
+
+    <!-- CONTATOS -->
+    <section id="contatos" class="reveal fade-up min-h-screen pt-24 px-5">
+
+      <!-- TÍTULO -->
+      <h2 class="text-2xl font-semibold text-center mx-auto py-4 my-6 max-w-4xl">Contatos</h2>
+      <div class="h-0.5 mx-auto bg-[var(--glass-border)] rounded-full max-w-4xl mb-16"></div>
+
+      <div class="max-w-5xl mx-auto text-gray-300">
+
+        <!-- E-MAILS -->
+        <h2 class="text-lg text-[var(--primary)] text-center mt-6 mb-6">E-mails</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+
+          <div class="contact-card reveal fade-up glass-card cursor-pointer"
+              onclick="window.location.href='mailto:felipeaires98@hotmail.com'">
+            <i data-feather="mail" class="contact-icon"></i>
+            <h3 class="contact-title">E-mail Principal</h3>
+            <p class="contact-text">felipeaires98@hotmail.com</p>
+          </div>
+
+          <div class="contact-card reveal fade-up glass-card cursor-pointer"
+              onclick="window.location.href='mailto:felipeaires2009@gmail.com'">
+            <i data-feather="mail" class="contact-icon"></i>
+            <h3 class="contact-title">E-mail Secundário</h3>
+            <p class="contact-text">felipeaires2009@gmail.com</p>
+          </div>
+
+        </div>
+
+        <!-- CELULARES / TELEFONES -->
+        <h2 class="text-lg text-[var(--primary)] text-center mt-6 mb-6">Celulares e Telefones</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+
+          <div class="contact-card reveal fade-up glass-card cursor-pointer"
+              onclick="window.open('https://wa.me/5511996680081', '_blank')">
+            <i data-feather="smartphone" class="contact-icon"></i>
+            <h3 class="contact-title">Celular</h3>
+            <p class="contact-text">+55 11 99668-0081</p>
+          </div>
+
+        </div>
+
+        <!-- LINKS PROFISSIONAIS -->
+        <h2 class="text-lg text-[var(--primary)] text-center mt-6 mb-6">Links Profissionais</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+
+          <div class="contact-card reveal fade-up glass-card cursor-pointer"
+              onclick="window.open('https://www.linkedin.com/in/felipe-aires-joaquim/', '_blank')">
+            <i data-feather="linkedin" class="contact-icon"></i>
+            <h3 class="contact-title">LinkedIn</h3>
+            <p class="contact-text">Visitar Perfil</p>
+          </div>
+
+          <div class="contact-card reveal fade-up glass-card cursor-pointer"
+              onclick="window.open('https://github.com/FelipeOPratinha', '_blank')">
+            <i data-feather="github" class="contact-icon"></i>
+            <h3 class="contact-title">GitHub</h3>
+            <p class="contact-text">Repositórios e Projetos</p>
+          </div>
+
+        </div>
+
+        <!-- REDES SOCIAIS -->
+        <h2 class="text-lg text-[var(--primary)] text-center mt-6 mb-6">Redes Sociais</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+
+          <div class="contact-card reveal fade-up glass-card cursor-pointer"
+              onclick="window.open('https://www.instagram.com/felipe.aires07/', '_blank')">
+            <i data-feather="instagram" class="contact-icon"></i>
+            <h3 class="contact-title">Instagram</h3>
+            <p class="contact-text">@felipe.aires07</p>
+          </div>
+
+        </div>
+
+        <!-- OUTROS -->
+        <h2 class="text-lg text-[var(--primary)] text-center mt-6 mb-6">Outros</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+
+          <div class="contact-card reveal fade-up glass-card cursor-pointer"
+              onclick="window.open('https://www.twitch.tv/felipeopratinha', '_blank')">
+            <i data-feather="tv" class="contact-icon"></i>
+            <h3 class="contact-title">Twitch</h3>
+            <p class="contact-text">felipeopratinha</p>
+          </div>
+
+        </div>
+
+        <!-- BOTÕES DE CONTATO DIRETO -->
+        <div class="my-16 flex justify-center gap-4 flex-wrap">
+
+          <button onclick="window.location.href='mailto:felipeaires98@hotmail.com'" class="min-w-fit w-52 flex justify-center align-center px-6 py-3 text-[var(--text-color)] bg-[var(--primary)] hover:bg-[var(--primary-hover)] rounded-full transition">
+            Enviar E-mail
+          </button>
+
+          <button onclick="window.location.href='https://wa.me/5511996680081'" class="min-w-fit w-52 flex justify-center align-center px-6 py-3 text-[var(--text-color)] bg-[var(--primary)] hover:bg-[var(--primary-hover)] rounded-full transition">
+            Enviar WhatsApp
+          </button>
+
+        </div>
+
+        <div class="h-0.5 mx-auto bg-[var(--glass-border)] rounded-full max-w-4xl mb-16"></div>
+        
+        <!-- CRÉDITOS -->
+        <div class="mt-16 mb-4 flex justify-center">
+          <p class="credit-desc flex flex-row text-gray-500">
+            Desenvolvido por Felipe Aires <!-- <i data-feather="heart" class="w-3 mx-1"></i> Maria Eduarda --> • 2025
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODAL DE PROJETOS -->
+    <div id="project-modal" class="modal hidden fixed inset-0 bg-[rgba(0,0,0,0.65)] backdrop-blur-md flex justify-center items-center z-[9999]">
+
+      <div class="modal-content bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-xl p-6 max-w-4xl w-[92%] relative shadow-lg">
+
+        <!-- Cabeçalho do modal -->
+        <div class="w-full flex flex-col relative">
+          <h3 id="modal-title" class="text-xl font-semibold my-2 text-[var(--primary)]"></h3>
+          <button id="modal-close" class="absolute right-0 py-2 px-2 text-[var(--text-color)] hover:text-[var(--primary)] hover:bg-[var(--bg-color)] rounded-lg transition">
+            <i data-feather="x" class="w-5"></i>
+          </button>
+        </div>
+
+        <!-- Container de mídia -->
+        <div id="modal-media" class="modal-media-container"></div>
+
+      </div>
+    </div>
+
+    <!-- MODAL DE CERTIFICADO -->
+    <div id="cert-modal" class="modal hidden fixed inset-0 bg-[rgba(0,0,0,0.65)] backdrop-blur-md flex justify-center items-center z-[9999]">
+
+      <div class="modal-content bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-xl p-6 max-w-4xl w-[92%] relative shadow-lg">
+
+        <!-- Cabeçalho do modal -->
+        <div class="w-full flex flex-col relative">
+          <h3 id="cert-modal-title" class="text-xl font-semibold my-2 text-[var(--primary)]"></h3>
+          <button id="cert-modal-close" class="absolute right-0 py-2 px-2 text-[var(--text-color)] hover:text-[var(--primary)] hover:bg-[var(--bg-color)] rounded-lg transition">
+            <i data-feather="x" class="w-5"></i>
+          </button>
+        </div>
+
+        <!-- Container de certificado -->
+        <div id="cert-modal-view" class="w-full max-h-[60vh] md:max-h-[80vh] overflow-hidden rounded-lg"></div>
+
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="./scripts/themeManager.js"></script>
+    <script src="./scripts/githubApi.js"></script>
+    <script src="./scripts/animations.js"></script>
+    <script src="./scripts/certificates.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+
+        const sections = document.querySelectorAll("section[id], header[id]");
+        const navItems = document.querySelectorAll(".nav-item");
+        const sidebarItems = document.querySelectorAll(".sidebar-item");
+
+        function marcarSecaoAtiva() {
+          let scrollY = window.pageYOffset;
+
+          sections.forEach(sec => {
+            const offset = Number(sec.dataset.offset) || 50;
+            const top = sec.offsetTop - offset;
+            const bottom = top + sec.offsetHeight;
+
+            if (scrollY >= top && scrollY < bottom) {
+              const id = sec.getAttribute("id");
+
+              // LIMPA NAVBAR
+              navItems.forEach(item => item.classList.remove("active"));
+
+              // MARCA NAVBAR
+              navItems.forEach(item => {
+                const link = item.querySelector("a");
+                if (link && link.getAttribute("href") === `#${id}`) {
+                  item.classList.add("active");
+                }
+              });
+
+              // LIMPA SIDEBAR
+              sidebarItems.forEach(item => item.classList.remove("active"));
+
+              // MARCA SIDEBAR
+              sidebarItems.forEach(item => {
+                const link = item.querySelector("a");
+                if (link && link.getAttribute("href") === `#${id}`) {
+                  item.classList.add("active");
+                }
+              });
+
+            }
+          });
+        }
+
+        window.addEventListener("scroll", marcarSecaoAtiva);
+        marcarSecaoAtiva();
+      });
+    </script>
+
+    <script>
+      feather.replace();
+    </script>
+
+  </body>
+</html>
