@@ -2,26 +2,33 @@ const themeButton = document.getElementById("themeButton");
 const themeDropdown = document.getElementById("themeDropdown");
 const themeItems = document.querySelectorAll(".dropdown-item");
 
-// ALTERNAR DROPDOWN DE TEMAS
+// ABRIR / FECHAR DROPDOWN
 themeButton.addEventListener("click", () => {
   themeDropdown.classList.toggle("hidden");
 });
 
-// CARREGAR TEMA
+// APLICAR TEMA
 function loadTheme(themeName) {
   const link = document.getElementById("theme-stylesheet");
+
+  // TROCA O ARQUIVO CSS
   link.href = `./src/themes/theme-${themeName}.css`;
+
+  // SALVA A ESCOLHA NO LOCAL STORAGE
   localStorage.setItem("selected-theme", themeName);
 
+  // ATUALIZA O INDICADOR ATIVO
   updateActiveBullet(themeName);
 
-  // REINICIAR VANTA
-  setTimeout(() => {
-    initVanta();
-  }, 50);
+  // REINICIA O VANTA.JS
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      initVanta();
+    }, 60);
+  });
 }
 
-// ATUALIZA O INDICADOR NO TEMA ATIVO
+// MARCAR O TEMA ATUAL NO DROPDOWN
 function updateActiveBullet(activeTheme) {
   themeItems.forEach(item => {
     const bullet = item.querySelector(".bullet");
@@ -37,6 +44,7 @@ function updateActiveBullet(activeTheme) {
   });
 }
 
+// CLIQUE EM CADA ITEM DO DROPDOWN
 themeItems.forEach(item => {
   item.addEventListener("click", () => {
     const theme = item.getAttribute("data-theme");
@@ -52,6 +60,10 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// CARREGAR TEMA SALVO E SETAR O INDICADOR INICIAL
+// CARREGAR O TEMA SALVO
 const savedTheme = localStorage.getItem("selected-theme") || "default";
-loadTheme(savedTheme);
+
+// EVITANDO RENDERIZAÇÃO ANTES DO CSS SER APLICADO
+setTimeout(() => {
+  loadTheme(savedTheme);
+}, 10);
