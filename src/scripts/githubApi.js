@@ -39,22 +39,41 @@ async function carregarRepos() {
       percent: ((value / total) * 100).toFixed(1) + "%"
     }));
 
-    // CARROUSSEL DE IMAGENS
-    const imagens = [
-      `./src/assets/images/projetos/${repo.name}/img/1.png`,
-      `./src/assets/images/projetos/${repo.name}/img/2.png`,
-      `./src/assets/images/projetos/${repo.name}/img/3.png`
-    ];
+    // CARREGAR ARQUIVO index.json DO PROJETO
+    const jsonPath = `./src/assets/images/projetos/${repo.name}/index.json`;
+
+    let listaImgs = [];
+    let listaVids = [];
+
+    try {
+      const response = await fetch(jsonPath);
+      const data = await response.json();
+
+      listaImgs = data.img || [];
+      listaVids = data.vid || [];
+
+    } catch (e) {
+      console.warn(`Sem index.json em: ${repo.name}`);
+    }
 
     const card = document.createElement("div");
     card.className = "project-card";
 
     card.innerHTML = `
       <div class="project-carousel" data-index="0">
-        ${imagens.map(src => `<img src="${src}" class="carousel-img" onerror="this.style.display='none'">`).join("")}
 
-        <button class="carousel-btn left"><div class="flex self-center"><i data-feather="chevrons-left" class="w-5"></i></div></button>
-        <button class="carousel-btn right"><div class="flex self-center"><i data-feather="chevrons-right" class="w-5"></i></div></button>
+        ${listaImgs.map(src =>
+          `<img src="./src/assets/images/projetos/${repo.name}/img/${src}"
+                class="carousel-img"
+                onerror="this.style.display='none'">`
+        ).join("")}
+
+        <button class="carousel-btn left">
+          <div class="flex self-center"><i data-feather="chevrons-left" class="w-5"></i></div>
+        </button>
+        <button class="carousel-btn right">
+          <div class="flex self-center"><i data-feather="chevrons-right" class="w-5"></i></div>
+        </button>
       </div>
 
       <div class="project-content">
@@ -85,7 +104,6 @@ async function carregarRepos() {
     const imgs = carousel.querySelectorAll(".carousel-img");
     let index = 0;
 
-    // MOSTRAR PRIMEIRA IMAGEM INICIALMENTE
     function mostrarImagem(i) {
       imgs.forEach(img => img.classList.remove("active"));
       if (imgs[i]) imgs[i].classList.add("active");
@@ -105,11 +123,29 @@ async function carregarRepos() {
       mostrarImagem(index);
     });
 
-    // AUTO PLAY DAS IMAGENS
-    setInterval(() => {
-      index = (index + 1) % imgs.length;
-      mostrarImagem(index);
-    }, 10000);
+    // AUTO PLAY AO PASSAR O MOUSE
+    let interval = null;
+
+    // INICIAR AUTO-PLAY
+    function startAutoplay() {
+      if (interval) return;
+      interval = setInterval(() => {
+        index = (index + 1) % imgs.length;
+        mostrarImagem(index);
+      }, 5000);
+    }
+
+    // PARAR AUTO-PLAY E VOLTAR PARA PRIMEIRA IMAGEM
+    function stopAutoplay() {
+      clearInterval(interval);
+      interval = null;
+      index = 0;
+      mostrarImagem(0);
+    }
+
+    // EVENTOS DE MOUSE
+    card.addEventListener("mouseenter", startAutoplay);
+    card.addEventListener("mouseleave", stopAutoplay);
 
     // ABRIR MODAL AO CLICAR NO TÍTULO
     card.querySelector(".project-title").addEventListener("click", (e) => {
@@ -118,36 +154,32 @@ async function carregarRepos() {
       modalTitle.textContent = repo.name;
       document.body.style.overflow = "hidden";
 
-      // CAMINHOS DAS MÍDIAS
-      const imagensGrandes = [
-        `./src/assets/images/projetos/${repo.name}/img/1.png`,
-        `./src/assets/images/projetos/${repo.name}/img/2.png`,
-        `./src/assets/images/projetos/${repo.name}/img/3.png`
-      ];
-
-      const videos = [
-        `./src/assets/images/projetos/${repo.name}/vid/1.mp4`
-      ];
-
-      // CRIAR HTML DAS MÍDIAS
       let html = "";
 
-      // INSERIR VÍDEOS PRIMEIRO
-      videos.forEach(video => {
-        html += `
-          <video controls class="mb-4">
-            <source src="${video}" type="video/mp4">
-            Seu navegador não suporta vídeos.
-          </video>
-        `;
-      });
-
-      // LOGO DEPOIS INSERIR AS IMAGENS
-      imagensGrandes.forEach(img => {
+      // PRIMEIRO CARREGA OS VÍDEOS
+      if (listaVids.length > 0) {
+        listaVids.forEach(video => {
+          html += `
+            <video controls class="mb-4 w-full rounded-lg shadow-lg">
+              <source src="./src/assets/images/projetos/${repo.name}/vid/${video}" type="video/mp4">
+              Seu navegador não suporta vídeos.
+            </video>
+          `;
+        });
+      } else {
+        // MOSTRAR IMAGEM PADRÃO QUANDO NÃO EXISTE VÍDEO
         html += `
           <div class="modal-img-wrapper mb-4">
-            <img src="${img}" onerror="this.style.display='none'" class="modal-img" />
+            <img src="./src/assets/images/projetos/${repo.name}/vid/preview-default.png" class="modal-img cert-img opacity-80">
+          </div>
+        `;
+      }
 
+      // DEPOIS CARREGA AS IMAGENS
+      listaImgs.forEach(img => {
+        html += `
+          <div class="modal-img-wrapper mb-4">
+            <img src="./src/assets/images/projetos/${repo.name}/img/${img}" onerror="this.style.display='none'" class="modal-img" />
             <button class="img-full-btn"><i data-feather="maximize-2" class="w-5"></i></button>
           </div>
         `;
@@ -155,18 +187,21 @@ async function carregarRepos() {
 
       modalMedia.innerHTML = html;
 
-      // ATIVANDO ICONES NO MODAL
       feather.replace();
 
-      // ATIVANDO BOTÃO DE TELA CHEIA NAS IMAGENS
+      // AJUSTAR BOTÃO DE TELA CHEIA
       setTimeout(() => {
         const btns = modalMedia.querySelectorAll(".img-full-btn");
-        const imgs = modalMedia.querySelectorAll(".modal-img");
+        const imgs = Array.from(modalMedia.querySelectorAll(".modal-img"))
+          // IGNORAR IMAGEM preview-default.png
+          .filter(img => !img.src.includes("preview-default.png"));
 
         btns.forEach((btn, i) => {
           btn.addEventListener("click", (e) => {
             e.stopPropagation();
+
             const img = imgs[i];
+            if (!img) return;
 
             if (img.requestFullscreen) img.requestFullscreen();
             else if (img.webkitRequestFullscreen) img.webkitRequestFullscreen();
@@ -174,7 +209,6 @@ async function carregarRepos() {
           });
         });
       }, 50);
-
     });
 
   }

@@ -48,9 +48,9 @@ function initVantaSafe() {
   const bg = getThemeVar("--vanta-bg");
   const color = getThemeVar("--vanta-color");
 
-  // CSS AINDA NÃO APLICADO → tenta de novo
+  // CSS AINDA NÃO APLICADO
   if (!bg || bg.length < 4 || !color || color.length < 4) {
-    return setTimeout(initVantaSafe, 120);
+    return setTimeout(initVantaSafe, 500);
   }
 
   // DESTRUIR EFEITO EXISTENTE
@@ -74,7 +74,26 @@ function initVantaSafe() {
 
 // INICIALIZA APÓS A PÁGINA COMPLETAR O LOAD
 window.addEventListener("load", () => {
-  setTimeout(initVantaSafe, 150);
+  setTimeout(initVantaSafe, 1000);
+});
+
+// DETECTAR MUDANÇA DE ZOOM E REINICIAR O VANTA
+let lastDevicePixelRatio = window.devicePixelRatio;
+
+setInterval(() => {
+  if (window.devicePixelRatio !== lastDevicePixelRatio) {
+    lastDevicePixelRatio = window.devicePixelRatio;
+
+    // RECRIAR O VANTA EM 120MS PARA GARANTIR ESTABILIDADE
+    setTimeout(() => {
+      initVantaSafe();
+    }, 1000);
+  }
+}, 500);
+
+// REINICIAR VANTA AO REDIMENSIONAR A JANELA
+window.addEventListener("resize", () => {
+  setTimeout(initVantaSafe, 1000);
 });
 
 // LIMPAR VANTA AO FECHAR A PÁGINA

@@ -24,7 +24,7 @@ function loadTheme(themeName) {
   requestAnimationFrame(() => {
     setTimeout(() => {
       initVantaSafe();
-    }, 60);
+    }, 1000);
   });
 }
 
@@ -66,4 +66,4 @@ const savedTheme = localStorage.getItem("selected-theme") || "default";
 // EVITANDO RENDERIZAÇÃO ANTES DO CSS SER APLICADO
 setTimeout(() => {
   loadTheme(savedTheme);
-}, 10);
+}, 300);
