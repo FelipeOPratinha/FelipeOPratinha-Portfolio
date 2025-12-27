@@ -119,6 +119,7 @@ html {
 }
 
 .skill-card {
+  height: fit-content;
   cursor: pointer;
   position: relative;
   overflow: hidden;
