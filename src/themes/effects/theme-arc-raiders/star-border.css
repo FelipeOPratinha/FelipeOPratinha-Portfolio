@@ -1,0 +1,42 @@
+.star-border {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  --star-radius: 9999px;
+  --star-thickness: 3.5px;
+  border-radius: var(--star-radius);
+  background-clip: padding-box;
+}
+
+.star-border::before {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--star-thickness));
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    135deg,
+    var(--star-color-4),
+    var(--star-color-1),
+    var(--star-color-2),
+    var(--star-color-3),
+    var(--star-color-4),
+    var(--star-color-4),
+    var(--star-color-4)
+  );
+
+  background-size: 300% 300%;
+  animation: star-border-flow var(--star-speed) linear infinite;
+}
+
+html[data-theme="arc-raiders"] .star-border:hover::before {
+  opacity: 1;
+}
+
+@keyframes star-border-flow {
+  0%   { background-position:   0% 50%; }
+  100% { background-position: 300% 50%; }
+}
