@@ -83,14 +83,16 @@ async function carregarRepos() {
 
         <div class="project-techs">
           ${porcentagens.map(p => `
-            <span class="tech-tag" data-percent="${p.percent}">
-              ${p.nome}
-            </span>
+            <div class="star-border flex w-fit h-fit" style="--star-radius: 8px; --star-thickness: 2px;">
+              <span class="tech-tag" data-percent="${p.percent}">
+                ${p.nome}
+              </span>
+            </div>
           `).join("")}
         </div>
 
         <div class="flex justify-end mt-4">
-          <a href="${repo.html_url}" class="project-link py-3 px-4 hover:text-[var(--text-color)] hover:bg-[var(--bg-color-github)] rounded-lg transition cursor-pointer" target="_blank">Ver no GitHub →</a>
+          <a href="${repo.html_url}" class="project-link py-3 px-4 hover:text-[var(--primary-text-color)] hover:bg-[var(--bg-color-github)] rounded-lg transition cursor-pointer" target="_blank">Ver no GitHub →</a>
         </div>
       </div>
     `;

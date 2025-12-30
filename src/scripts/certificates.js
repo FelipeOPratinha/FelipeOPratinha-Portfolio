@@ -85,11 +85,11 @@ async function carregarCertificados() {
           </div>
         </div>
 
-        <h3 class="cert-title text-lg font-semibold text-[var(--primary)] mb-2">
+        <h3 class="cert-title text-lg font-semibold mb-2">
           ${categoria.nome} | Certificado ${pdfName.replace(".pdf","")}
         </h3>
 
-        <p class="text-gray-300 opacity-80 text-sm">Clique para visualizar</p>
+        <p class="opacity-80 text-sm font-bold italic">Clique para visualizar</p>
       `;
 
       // ABRIR MODAL AO CLICAR NO CARD

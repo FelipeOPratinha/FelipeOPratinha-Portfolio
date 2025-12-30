@@ -1,30 +1,49 @@
 :root {
   /* VARIÁVEIS DE COR DO TEXTO */
-  --text-color: #e6e6e6;
+  --primary-text-color: rgb(249, 238, 223);
+  --secundary-text-color: rgb(9, 12, 25);
+  --tertiary-text-color: rgb(63, 146, 172);
 
   /* VARIÁVEIS DE COR DO FUNDO */
-  --bg-color: #0b0d0f;
+  --bg-color: rgb(9, 12, 25);
+  --bg-color-transparent: rgba(9, 12, 25, 0.7);
   --bg-color-github: #000000;
 
   /* VARIÁVEIS DE COR DO BOTÃO */
-  --primary: #ff6c11;
-  --primary-hover: #ff8035;
+  --primary: rgb(249, 238, 223);
+  --primary-hover: rgb(197, 189, 177);
+  --secundary: rgb(255, 188, 19);
+  --secundary-hover: rgb(204, 150, 15);
+  --tertiary: rgb(9, 12, 25);
+  --tertiary-hover: rgb(0, 0, 0);
+
+  /* VARIÁVEIS DE COR DAS BORDAS *EFEITO STAR-BORDER* */
+  --star-color-1: rgb(249, 238, 223);
+  --star-color-2: rgb(58, 221, 243);
+  --star-color-3: rgb(169, 0, 241);
+  --star-color-4: rgb(8, 12, 22);
+  --star-speed: 7s;
 
   /* VARIÁVEIS DE COR DOS CARDS E BORDAS */
-  --card-bg: #14171c;
-  --border-color: #2a2d33;
+  --card-bg: rgb(13, 17, 36);
+  --card-border: rgb(44, 47, 60);
 
   /* EFEITO DE GLOW PADRÃO */
-  --glow-color: rgba(255, 108, 17, 0.4);
+  --glow-color: rgba(255, 188, 19, 0.4);
 
   /* GLASSMORFISMO DA NAVBAR */
-  --glass-border: rgba(255, 108, 17, 0.25);
-  --glass-bg: rgba(10, 10, 12, 0.35);
+  --glass-bg: rgba(9, 12, 25, 0.30);
+  --glass-border: rgb(44, 47, 60);
 
-  /* VARIÁVEIS DE COR E CONFIGURAÇÃO DO FUNDO VANTA.JS */
-  --vanta-bg: #0b0d0f;
-  --vanta-color: #ff6c11;
-  --vanta-points: 10;
-  --vanta-maxdistance: 22;
-  --vanta-spacing: 18;
+  /* BOTÕES DE CONTATO FINAIS CUSTOMIZADOS */
+  --bg-email: rgb(63, 146, 172);
+  --bg-email-hover: rgb(44, 102, 121);
+  --bg-whatsapp: rgb(0, 255, 117);
+  --bg-whatsapp-hover: rgb(0, 204, 93);
+
+}
+
+html[data-theme="arc-raiders"] .star-border:hover::before {
+  opacity: 1;
+  animation-duration: var(--star-speed);
 }
