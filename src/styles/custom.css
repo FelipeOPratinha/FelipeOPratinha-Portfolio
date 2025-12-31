@@ -79,7 +79,7 @@ html {
 .glass-card {
   border-radius: 20px;
   background: var(--card-bg);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--card-border);
 }
 
 .glass-card:hover {
