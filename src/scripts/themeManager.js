@@ -4,6 +4,8 @@ const themeItems = document.querySelectorAll(".dropdown-item");
 
 let activeBackground = null;
 let activeColorBends = null;
+let activeCyberGlitch = null;
+let activeMatrix = null;
 
 // DESTRUIR EFEITO
 function destroyVanta() {
@@ -19,11 +21,35 @@ function destroyVanta() {
   el.querySelectorAll("canvas").forEach(c => c.remove());
 }
 
+function destroyColorBends() {
+  if (activeColorBends) {
+    activeColorBends.stop();
+    activeColorBends = null;
+  }
+}
+
+function destroyCyberGlitch() {
+  if (activeCyberGlitch) {
+    activeCyberGlitch.stop();
+    activeCyberGlitch = null;
+  }
+}
+
+function destroyMatrix() {
+  if (activeMatrix) {
+    activeMatrix.stop();
+    activeMatrix = null;
+  }
+}
+
 // ESCOLHE O FUNDO ANIMADO DE ACORDO COM O TEMA
 function applyBackgroundEffect(theme) {
 
   // LIMPA TUDO
   destroyVanta();
+  destroyColorBends();
+  destroyCyberGlitch();
+  destroyMatrix();
 
   activeBackground = null;
 
@@ -52,9 +78,31 @@ function applyBackgroundEffect(theme) {
       break;
 
     case "cyberpunk":
+      activeBackground = "cyber";
+      activeCyberGlitch = initCyberGlitch("#vanta-bg", {
+        terminalOffsetY: 250,
+        terminalOffsetX: 40,
+        terminalBootDuration: 1500,
+        glitchIntensity: 0.85,
+        glitchSpeed: 110,
+        scanlineOpacity: 0.18,
+        flickerChance: 0.04,
+        mouseInfluence: 0.7,
+        redGlitchBootDuration: 1500
+      });
+      break;
+
     case "matrix":
-      activeBackground = "static";
-      console.warn(`${theme.toUpperCase()} ainda sem efeito definido.`);
+      activeBackground = "matrix";
+      activeMatrix = initMatrixRain("#vanta-bg", {
+        fallSpeed: 90,
+        wordSpeed: 120,
+        trailSize: 15,
+        fontSize: 28,
+        trailOpacity: 1,
+        glowStrength: 0.6,
+        depthLevels: 4
+      });
       break;
   }
 }
