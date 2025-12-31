@@ -36,11 +36,10 @@
   --glass-border: rgb(44, 47, 60);
 
   /* BOTÕES DE CONTATO FINAIS CUSTOMIZADOS */
-  --bg-email: rgb(63, 146, 172);
-  --bg-email-hover: rgb(44, 102, 121);
-  --bg-whatsapp: rgb(0, 255, 117);
-  --bg-whatsapp-hover: rgb(0, 204, 93);
-
+  --bg-email: rgb(60, 172, 253);
+  --bg-email-hover: rgb(47, 137, 202);
+  --bg-whatsapp: rgb(37, 211, 102);
+  --bg-whatsapp-hover: rgb(28, 160, 77);
 }
 
 html[data-theme="arc-raiders"] .star-border:hover::before {
