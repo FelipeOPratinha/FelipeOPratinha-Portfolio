@@ -33,11 +33,14 @@
   --bg-email-hover: rgb(47, 137, 202);
   --bg-whatsapp: rgb(37, 211, 102);
   --bg-whatsapp-hover: rgb(28, 160, 77);
+}
 
-  /* VARIÁVEIS DE COR E CONFIGURAÇÃO DO FUNDO VANTA.JS */
-  --vanta-bg: #000006;
-  --vanta-color: #fcf600;
-  --vanta-points: 10;
-  --vanta-maxdistance: 22;
-  --vanta-spacing: 18;
+html[data-theme="cyberpunk"] .glitch-border:hover::before {
+  opacity: 1;
+  animation: glitch-flicker 0.8s infinite steps(2);
+}
+
+html[data-theme="cyberpunk"] .glitch-border:hover::after {
+  opacity: 0.35;
+  animation: glitch-scan 0.15s infinite;
 }
