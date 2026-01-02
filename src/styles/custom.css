@@ -87,6 +87,8 @@ html {
 }
 
 html[data-theme="default"] .glass-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 18px var(--glow-color);
   transform: translateY(-6px) scale(1.03);
 }
 
@@ -106,7 +108,13 @@ html[data-theme="default"] .glass-card:hover {
 }
 
 html[data-theme="default"] .service-card:hover {
+  border-color: var(--primary);
   transform: translateY(-6px) scale(1.03);
+}
+
+html[data-theme="cyberpunk"] .service-card:hover {
+  border-color: var(--primary);
+  box-shadow: none;
 }
 
 .service-icon {
@@ -165,7 +173,13 @@ html[data-theme="default"] .skill-card:hover::before {
 }
 
 html[data-theme="default"] .skill-card:hover {
+  border-color: var(--primary);
   transform: translateY(-6px) scale(1.03);
+}
+
+html[data-theme="cyberpunk"] .skill-card:hover {
+  border-color: var(--primary);
+  box-shadow: none;
 }
 
 .skill-title {
@@ -216,6 +230,7 @@ html[data-theme="default"] .skill-card:hover {
   margin-top: 8px;
   font-size: 0.85rem;
   opacity: 0.85;
+  min-height: 105px;
 }
 
 .skill-bullet.level-1 {
@@ -686,12 +701,17 @@ html[data-theme="default"] .skill-card:hover {
 
 .contact-card:hover {
   background: var(--card-bg);
-  border-color: var(--card-border);
   box-shadow: 0 0 18px var(--glow-color);
 }
 
 html[data-theme="default"] .contact-card:hover {
+  border-color: var(--primary);
   transform: translateY(-6px) scale(1.03);
+}
+
+html[data-theme="cyberpunk"] .contact-card:hover {
+  border-color: var(--primary);
+  box-shadow: none;
 }
 
 .contact-icon {
