@@ -1,0 +1,103 @@
+.glitch-border {
+  position: relative;
+  --glitch-color: rgb(103, 219, 229);
+  --glitch-color-background: rgb(184, 21, 40);
+  --corner-radius: 0px;
+  --border-size: 4px;
+  --corner-size: 40px;
+  background: transparent;
+  border: none;
+  isolation: isolate;
+}
+
+.glitch-border > * {
+  position: relative;
+  z-index: 1;
+}
+
+.glitch-border::before,
+.glitch-border::after {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--border-size));
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+.glitch-border::before {
+  background:
+    radial-gradient(
+      circle at top left,
+      transparent calc(var(--corner-radius)),
+      var(--glitch-color) calc(var(--corner-radius) + 1px)
+    ) top left / var(--corner-size) var(--corner-size),
+    linear-gradient(var(--glitch-color), var(--glitch-color))
+      left top / var(--corner-size) var(--border-size),
+    linear-gradient(var(--glitch-color), var(--glitch-color))
+      left top / var(--border-size) var(--corner-size),
+
+    radial-gradient(
+      circle at top right,
+      transparent calc(var(--corner-radius)),
+      var(--glitch-color) calc(var(--corner-radius) + 1px)
+    ) top right / var(--corner-size) var(--corner-size),
+    linear-gradient(var(--glitch-color), var(--glitch-color))
+      right top / var(--corner-size) var(--border-size),
+    linear-gradient(var(--glitch-color), var(--glitch-color))
+      right top / var(--border-size) var(--corner-size),
+
+    radial-gradient(
+      circle at bottom left,
+      transparent calc(var(--corner-radius)),
+      var(--glitch-color) calc(var(--corner-radius) + 1px)
+    ) bottom left / var(--corner-size) var(--corner-size),
+    linear-gradient(var(--glitch-color), var(--glitch-color))
+      left bottom / var(--corner-size) var(--border-size),
+    linear-gradient(var(--glitch-color), var(--glitch-color))
+      left bottom / var(--border-size) var(--corner-size),
+
+    radial-gradient(
+      circle at bottom right,
+      transparent calc(var(--corner-radius)),
+      var(--glitch-color) calc(var(--corner-radius) + 1px)
+    ) bottom right / var(--corner-size) var(--corner-size),
+    linear-gradient(var(--glitch-color), var(--glitch-color))
+      right bottom / var(--corner-size) var(--border-size),
+    linear-gradient(var(--glitch-color), var(--glitch-color))
+      right bottom / var(--border-size) var(--corner-size);
+
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.glitch-border::after {
+  background: linear-gradient(var(--glitch-color-background), var(--glitch-color-background));
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+html[data-theme="cyberpunk"] .glitch-border:hover::before {
+  opacity: 1;
+  animation: glitch-flicker 0.8s infinite steps(2);
+}
+
+html[data-theme="cyberpunk"] .glitch-border:hover::after {
+  opacity: 0.35;
+  animation: glitch-scan 0.15s infinite;
+}
+
+@keyframes glitch-flicker {
+  0%   { opacity: 1; filter: hue-rotate(0deg); }
+  20%  { opacity: 0.4; }
+  40%  { opacity: 1; filter: hue-rotate(25deg); }
+  60%  { opacity: 0.6; }
+  80%  { opacity: 1; filter: hue-rotate(-20deg); }
+  100% { opacity: 0.9; }
+}
+
+@keyframes glitch-scan {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(2px, -1px); }
+  100% { transform: translate(-1px, 1px); }
+}
