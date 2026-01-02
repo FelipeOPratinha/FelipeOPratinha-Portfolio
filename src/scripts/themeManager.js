@@ -80,17 +80,25 @@ function applyBackgroundEffect(theme) {
     case "cyberpunk":
       activeBackground = "cyber";
       activeCyberGlitch = initCyberGlitch("#vanta-bg", {
-        terminalOffsetY: 250,
         terminalOffsetX: 40,
         terminalBootDuration: 1500,
         glitchIntensity: 0.85,
         glitchSpeed: 110,
         scanlineOpacity: 0.18,
-        flickerChance: 0.04,
-        mouseInfluence: 0.7,
-        redGlitchBootDuration: 1500
+        mouseInfluence: 1,
+        redGlitchBootDuration: 1000,
+        skullOffsetX: 0,
+        skullOffsetY: 40,
+        blinkSpeed: 3000,
+        jawSpeed: 700,
+        jawOpenAmount: 14,
+        boneLength: 136,
+        boneThickness: 10,
+        boneAngle: Math.PI / 8,
+        avoidSelector: ".hero-card"
       });
-      break;
+
+  break;
 
     case "matrix":
       activeBackground = "matrix";
