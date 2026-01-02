@@ -36,6 +36,9 @@
     <!-- Efeitos do tema Arc Raiders -->
     <link rel="stylesheet" href="./src/themes/effects/theme-arc-raiders/star-border.css">
 
+    <!-- Efeitos do tema Cyberpunk -->
+    <link rel="stylesheet" href="./src/themes/effects/theme-cyberpunk/glitch-border.css">
+
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
@@ -179,7 +182,7 @@
       <div id="vanta-bg" class="absolute inset-0 z-0 bg-transparent"></div>
 
       <!-- Conteúdo -->
-      <div class="relative z-10 p-8 flex flex-col justify-center items-center bg-[var(--bg-color-transparent)] border border-[var(--card-border)] rounded-xl pointer-events-none">
+      <div class="relative hero-card z-10 p-8 flex flex-col justify-center items-center bg-[var(--bg-color-transparent)] border border-[var(--card-border)] rounded-xl pointer-events-none">
         <h1 class="reveal fade-up text-xl md:text-3xl font-bold mb-4">
           Olá, me chamo <span class="text-[var(--secundary)]">Felipe Aires</span>
         </h1>
@@ -212,35 +215,38 @@
         <img src="./src/assets/images/sobremim/felipe1.jpg" class="object-cover rounded-full photo-border text-center content-center" alt="Foto de Felipe Aires">
       </div>
 
-      <div class="star-border glass-card max-w-4xl mx-auto p-4 md:p-10 shadow-lg transition" style="--star-radius: 24px">
-        
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-10">
+      <div class="w-fit mx-auto">
+        <div class="star-border" style="--star-radius: 24px">
+          <div class="glitch-border">
+            <div class="glass-card max-w-4xl mx-auto p-4 md:p-10 shadow-lg transition" >
+              <div class="flex flex-col md:flex-row items-center md:items-start gap-10">
 
+                <!-- TEXTO -->
+                <div class="text-[var(--primary-text-color)] leading-relaxed text-justify text-sm md:text-lg">
+                  
+                  <p class="mb-4">
+                    Olá! Meu nome é <span class="text-[var(--secundary)]">Felipe Aires</span>, tenho 23 anos e sou um desenvolvedor fullstack em formação. 
+                    Estou cursando Análise e Desenvolvimento de Sistemas na Fatec Mogi das Cruzes, e sou apaixonado por criar soluções modernas, úteis e eficientes.
+                  </p>
+      
+                  <p class="mb-4">
+                    Minha jornada na programação começou há alguns anos, e desde então tenho me aprofundado em tecnologias como 
+                    <span class="text-[var(--secundary)]">JavaScript, TypeScript, PHP, HTML, CSS</span>, além de desenvolvimento mobile com 
+                    <span class="text-[var(--secundary)]">React Native</span> e estilização com <span class="text-[var(--secundary)]">Tailwind</span> e <span class="text-[var(--secundary)]">Bootstrap</span>.
+                  </p>
+      
+                  <p>
+                    Também tenho interesse nas áreas de <span class="text-[var(--secundary)]">desenvolvimento de jogos</span>, 
+                    <span class="text-[var(--secundary)]">inteligência artificial</span> e automação.  
+                    Acredito profundamente que tecnologia muda vidas, e estou trabalhando todos os dias para fazer parte dessa mudança.
+                  </p>
+      
+                </div>
 
-          <!-- TEXTO -->
-          <div class="text-[var(--primary-text-color)] leading-relaxed text-justify text-sm md:text-lg">
-            
-            <p class="mb-4">
-              Olá! Meu nome é <span class="text-[var(--secundary)]">Felipe Aires</span>, tenho 23 anos e sou um desenvolvedor fullstack em formação. 
-              Estou cursando Análise e Desenvolvimento de Sistemas na Fatec Mogi das Cruzes e sou apaixonado por criar soluções modernas, úteis e eficientes.
-            </p>
-
-            <p class="mb-4">
-              Minha jornada na programação começou há alguns anos, e desde então tenho me aprofundado em tecnologias como 
-              <span class="text-[var(--secundary)]">JavaScript, TypeScript, PHP, HTML, CSS</span>, além de desenvolvimento mobile com 
-              <span class="text-[var(--secundary)]">React Native</span> e estilização com <span class="text-[var(--secundary)]">Tailwind</span> e <span class="text-[var(--secundary)]">Bootstrap</span>.
-            </p>
-
-            <p>
-              Também tenho interesse nas áreas de <span class="text-[var(--secundary)]">desenvolvimento de jogos</span>, 
-              <span class="text-[var(--secundary)]">inteligência artificial</span> e automação.  
-              Acredito profundamente que tecnologia muda vidas e estou trabalhando todos os dias para fazer parte dessa mudança.
-            </p>
-
+              </div>
+            </div>
           </div>
-
         </div>
-
       </div>
 
     </section>
@@ -256,50 +262,58 @@
       <div class="max-w-5xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
         <div class="star-border" style="--star-radius: 18px">
-          <div class="service-card reveal fade-up">
-            <div class="service-icon mb-4">
-              <i data-feather="code" class="w-6"></i>
+          <div class="glitch-border">
+            <div class="service-card reveal fade-up">
+              <div class="service-icon mb-4">
+                <i data-feather="code" class="w-6"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-2 text-[var(--tertiary-text-color)]">Desenvolvimento Web</h3>
+              <p class="text-[var(--primary-text-color)] text-justify">
+                Criação de sistemas completos, sites modernos, dashboards e aplicações web responsivas usando tecnologias atuais.
+              </p>
             </div>
-            <h3 class="text-xl font-semibold mb-2 text-[var(--tertiary-text-color)]">Desenvolvimento Web</h3>
-            <p class="text-[var(--primary-text-color)] text-justify">
-              Criação de sistemas completos, sites modernos, dashboards e aplicações web responsivas usando tecnologias atuais.
-            </p>
           </div>
         </div>
 
         <div class="star-border" style="--star-radius: 18px">
-          <div class="service-card reveal fade-up">
-            <div class="service-icon mb-4">
-              <i data-feather="smartphone" class="w-6"></i>
+          <div class="glitch-border">
+            <div class="service-card reveal fade-up">
+              <div class="service-icon mb-4">
+                <i data-feather="smartphone" class="w-6"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-2 text-[var(--tertiary-text-color)]">Desenvolvimento Mobile</h3>
+              <p class="text-[var(--primary-text-color)] text-justify">
+                Aplicativos para Android e iOS usando React Native, desde protótipos até apps completos para empresas e negócios.
+              </p>
             </div>
-            <h3 class="text-xl font-semibold mb-2 text-[var(--tertiary-text-color)]">Desenvolvimento Mobile</h3>
-            <p class="text-[var(--primary-text-color)] text-justify">
-              Aplicativos para Android e iOS usando React Native, desde protótipos até apps completos para empresas e negócios.
-            </p>
           </div>
         </div>
 
         <div class="star-border" style="--star-radius: 18px">
-          <div class="service-card reveal fade-up">
-            <div class="service-icon mb-4">
-              <i data-feather="camera" class="w-6"></i>
+          <div class="glitch-border">
+            <div class="service-card reveal fade-up">
+              <div class="service-icon mb-4">
+                <i data-feather="camera" class="w-6"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-2 text-[var(--tertiary-text-color)]">Edição de Foto e Vídeo</h3>
+              <p class="text-[var(--primary-text-color)] text-justify">
+                Criação de banners, materiais visuais, thumbnails e edições simples e intermediárias para redes sociais e projetos.
+              </p>
             </div>
-            <h3 class="text-xl font-semibold mb-2 text-[var(--tertiary-text-color)]">Edição de Foto e Vídeo</h3>
-            <p class="text-[var(--primary-text-color)] text-justify">
-              Criação de banners, materiais visuais, thumbnails e edições simples e intermediárias para redes sociais e projetos.
-            </p>
           </div>
         </div>
 
         <div class="star-border" style="--star-radius: 18px">
-          <div class="service-card reveal fade-up">
-            <div class="service-icon mb-4">
-              <i data-feather="cpu" class="w-6"></i>
+          <div class="glitch-border">
+            <div class="service-card reveal fade-up">
+              <div class="service-icon mb-4">
+                <i data-feather="cpu" class="w-6"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-2 text-[var(--tertiary-text-color)]">Suporte e Hardware</h3>
+              <p class="text-[var(--primary-text-color)] text-justify">
+                Montagem de computadores, formatação, instalação de sistemas e assistência técnica a usuários.
+              </p>
             </div>
-            <h3 class="text-xl font-semibold mb-2 text-[var(--tertiary-text-color)]">Suporte e Hardware</h3>
-            <p class="text-[var(--primary-text-color)] text-justify">
-              Montagem de computadores, formatação, instalação de sistemas e assistência técnica a usuários.
-            </p>
           </div>
         </div>
 
@@ -314,57 +328,71 @@
       <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="JavaScript" data-focus="3" data-tech="2" data-desc="JavaScript atualmente é minha principal linguagem, onde me sinto mais confortável criando tanto frontend quanto backend.">
-            <div class="skill-title">
-              JavaScript
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="JavaScript" data-focus="3" data-tech="2" data-desc="JavaScript atualmente é minha principal linguagem, onde me sinto mais confortável criando tanto frontend quanto backend.">
+              <div class="skill-title">
+                JavaScript
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="TypeScript" data-focus="3" data-tech="2" data-desc="TypeScript me permite estruturar melhor meus projetos e evitar erros comuns, costumo usar bastante em aplicações modernas.">
-            <div class="skill-title">
-              TypeScript
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="TypeScript" data-focus="3" data-tech="2" data-desc="TypeScript me permite estruturar melhor meus projetos e evitar erros comuns, costumo usar bastante em aplicações modernas.">
+              <div class="skill-title">
+                TypeScript
+              </div>
             </div>
           </div>
         </div>
         
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="PHP-Dark" data-focus="2" data-tech="2" data-desc="PHP foi a primeira linguagem pela qual desenvolvi paixão, muito por conta da minha experiência no estágio na prefeitura.">
-            <div class="skill-title">
-              PHP
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="PHP-Dark" data-focus="2" data-tech="2" data-desc="PHP foi a primeira linguagem pela qual desenvolvi paixão, muito por conta da minha experiência no estágio na prefeitura.">
+              <div class="skill-title">
+                PHP
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="Java-Dark" data-focus="2" data-tech="1" data-desc="Java foi uma linguagem que utilizei bastante na faculdade, mas hoje não a utilizo com tanta frequência.">
-            <div class="skill-title">
-              Java
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="Java-Dark" data-focus="2" data-tech="1" data-desc="Java foi uma linguagem que utilizei bastante na faculdade, mas hoje não a utilizo com tanta frequência.">
+              <div class="skill-title">
+                Java
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="CPP" data-focus="1" data-tech="1" data-desc="C++ foi minha primeira linguagem de programação, mas tive pouco tempo de prática com ela, apesar de ter realizado algumas tarefas na faculdade.">
-            <div class="skill-title">
-              C++
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="CPP" data-focus="1" data-tech="1" data-desc="C++ foi minha primeira linguagem de programação, mas tive pouco tempo de prática com ela, apesar de ter realizado algumas tarefas na faculdade.">
+              <div class="skill-title">
+                C++
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="HTML" data-focus="3" data-tech="2" data-desc="Tenho domínio legal de HTML, conhecendo bem sua estrutura e tags. Uso com muita frequência nos meus projetos e sempre busco aprender mais.">
-            <div class="skill-title">
-              HTML 5
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="HTML" data-focus="3" data-tech="2" data-desc="Tenho domínio legal de HTML, conhecendo bem sua estrutura e tags. Uso com muita frequência nos meus projetos e sempre busco aprender mais.">
+              <div class="skill-title">
+                HTML 5
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="CSS" data-focus="3" data-tech="2" data-desc="CSS sempre foi meu parquinho de diversões, quando aprendi a usar, queria estilizar tudo e testar coisas novas o tempo todo.">
-            <div class="skill-title">
-              CSS 3
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="CSS" data-focus="3" data-tech="2" data-desc="CSS sempre foi meu parquinho de diversões, quando aprendi a usar, queria estilizar tudo e testar coisas novas o tempo todo.">
+              <div class="skill-title">
+                CSS 3
+              </div>
             </div>
           </div>
         </div>
@@ -376,25 +404,31 @@
       <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="React-Dark" data-focus="3" data-tech="1" data-desc="Utilizei no meu último projeto da faculdade e gostei demais da experiência, certamente vou utilizá-lo bastante em novos projetos.">
-            <div class="skill-title">
-              React Native
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="React-Dark" data-focus="3" data-tech="1" data-desc="Utilizei no meu último projeto da faculdade e gostei demais da experiência, certamente vou utilizá-lo bastante em novos projetos.">
+              <div class="skill-title">
+                React Native
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="TailwindCSS-Dark" data-focus="3" data-tech="2" data-desc="Tailwind é meu melhor amigo para estilização rápida, moderna e responsiva, foi literalmente minha primeira evolução em relação ao CSS.">
-            <div class="skill-title">
-              Tailwind CSS
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="TailwindCSS-Dark" data-focus="3" data-tech="2" data-desc="Tailwind é meu melhor amigo para estilização rápida, moderna e responsiva, foi literalmente minha primeira evolução em relação ao CSS.">
+              <div class="skill-title">
+                Tailwind CSS
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="Bootstrap" data-focus="2" data-tech="2" data-desc="Conheço bem o Bootstrap, pois o utilizei no meu projeto de estágio e obtive ótimos resultados com ele.">
-            <div class="skill-title">
-              Bootstrap
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="Bootstrap" data-focus="2" data-tech="2" data-desc="Conheço bem o Bootstrap, pois o utilizei no meu projeto de estágio e obtive ótimos resultados com ele.">
+              <div class="skill-title">
+                Bootstrap
+              </div>
             </div>
           </div>
         </div>
@@ -406,25 +440,31 @@
       <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="PostgreSQL-Dark" data-focus="3" data-tech="2" data-desc="PostgreSQL é meu banco preferido e normalmente é a primeira opção que considero ao iniciar um projeto.">
-            <div class="skill-title">
-              PostgreSQL
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="PostgreSQL-Dark" data-focus="3" data-tech="2" data-desc="PostgreSQL é meu banco preferido e normalmente é a primeira opção que considero ao iniciar um projeto.">
+              <div class="skill-title">
+                PostgreSQL
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="MySQL-Dark" data-focus="2" data-tech="1" data-desc="MySQL é amplamente utilizado no mercado, tive boas experiências com ele em tarefas da faculdade e também no desenvolvimento do meu TCC.">
-            <div class="skill-title">
-              MySQL
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="MySQL-Dark" data-focus="2" data-tech="1" data-desc="MySQL é amplamente utilizado no mercado, tive boas experiências com ele em tarefas da faculdade e também no desenvolvimento do meu TCC.">
+              <div class="skill-title">
+                MySQL
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="Firebase-Dark" data-focus="1" data-tech="1" data-desc="Descobri o Firebase recentemente, e percebi que ele oferece funcionalidades muito práticas e úteis.">
-            <div class="skill-title">
-              Firebase
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="Firebase-Dark" data-focus="1" data-tech="1" data-desc="Descobri o Firebase recentemente, e percebi que ele oferece funcionalidades muito práticas e úteis.">
+              <div class="skill-title">
+                Firebase
+              </div>
             </div>
           </div>
         </div>
@@ -436,41 +476,51 @@
       <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="Github-Dark" data-focus="3" data-tech="2" data-desc="GitHub é uma plataforma que estou focado em dominar, as possibilidades e vantagens que ela oferece são incríveis.">
-            <div class="skill-title">
-              GitHub
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="Github-Dark" data-focus="3" data-tech="2" data-desc="GitHub é uma plataforma que estou focado em dominar, as possibilidades e vantagens que ela oferece são incríveis.">
+              <div class="skill-title">
+                GitHub
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="Git" data-focus="3" data-tech="2" data-desc="Git se tornou indispensável para mim, permitindo manter o versionamento dos meus projetos de forma organizada e segura.">
-            <div class="skill-title">
-              Git
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="Git" data-focus="3" data-tech="2" data-desc="Git se tornou indispensável para mim, permitindo manter o versionamento dos meus projetos de forma organizada e segura.">
+              <div class="skill-title">
+                Git
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="Photoshop" data-focus="2" data-tech="1" data-desc="No Photoshop não sou profissional, mas consigo criar e editar imagens quando necessário para algum projeto.">
-            <div class="skill-title">
-              Photoshop
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="Photoshop" data-focus="2" data-tech="1" data-desc="No Photoshop não sou profissional, mas consigo criar e editar imagens quando necessário para algum projeto.">
+              <div class="skill-title">
+                Photoshop
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="Illustrator" data-focus="2" data-tech="1" data-desc="Tenho utilizado bastante o Illustrator recentemente, principalmente para vetorização de imagens usadas em projetos.">
-            <div class="skill-title">
-              Illustrator
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="Illustrator" data-focus="2" data-tech="1" data-desc="Tenho utilizado bastante o Illustrator recentemente, principalmente para vetorização de imagens usadas em projetos.">
+              <div class="skill-title">
+                Illustrator
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="Figma-Dark" data-focus="2" data-tech="1" data-desc="Pretendo estudar o Figma mais profundamente, pois é uma ferramenta poderosa para estruturar e planejar projetos antes do desenvolvimento.">
-            <div class="skill-title">
-              Figma
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="Figma-Dark" data-focus="2" data-tech="1" data-desc="Pretendo estudar o Figma mais profundamente, pois é uma ferramenta poderosa para estruturar e planejar projetos antes do desenvolvimento.">
+              <div class="skill-title">
+                Figma
+              </div>
             </div>
           </div>
         </div>
@@ -486,49 +536,61 @@
       <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="2" data-desc="Tenho facilidade para me comunicar de forma clara, o que ajuda bastante na colaboração com equipes e clientes.">
-            <div class="skill-title">
-              Comunicação
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="2" data-desc="Tenho facilidade para me comunicar de forma clara, o que ajuda bastante na colaboração com equipes e clientes.">
+              <div class="skill-title">
+                Comunicação
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="3" data-desc="Busco sempre entender a perspectiva das pessoas ao meu redor, criando um ambiente mais colaborativo e respeitoso.">
-            <div class="skill-title">
-              Empatia
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="3" data-desc="Busco sempre entender a perspectiva das pessoas ao meu redor, criando um ambiente mais colaborativo e respeitoso.">
+              <div class="skill-title">
+                Empatia
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="3" data-desc="Trabalhar em equipe é algo que valorizo muito, sempre contribuindo para o grupo com proatividade e apoio quando necessário.">
-            <div class="skill-title">
-              Trabalho em equipe
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="3" data-desc="Trabalhar em equipe é algo que valorizo muito, sempre contribuindo para o grupo com proatividade e apoio quando necessário.">
+              <div class="skill-title">
+                Trabalho em equipe
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="2" data-desc="Gosto de analisar situações com calma e encontrar soluções práticas e eficientes, mesmo em cenários complexos.">
-            <div class="skill-title">
-              Resolução de problemas
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="2" data-desc="Gosto de analisar situações com calma e encontrar soluções práticas e eficientes, mesmo em cenários complexos.">
+              <div class="skill-title">
+                Resolução de problemas
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="3" data-desc="Procuro manter meus projetos, tarefas e rotinas bem organizados, o que me ajuda a trabalhar com maior foco e produtividade.">
-            <div class="skill-title">
-              Organização
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="3" data-desc="Procuro manter meus projetos, tarefas e rotinas bem organizados, o que me ajuda a trabalhar com maior foco e produtividade.">
+              <div class="skill-title">
+                Organização
+              </div>
             </div>
           </div>
         </div>
 
         <div class="star-border h-fit" style="--star-radius: 18px;">
-          <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="1" data-desc="No início, tive dificuldade para evoluir, mas com o tempo aprendi a pesquisar de forma mais eficiente e hoje absorvo novos conceitos com mais rapidez.">
-            <div class="skill-title">
-              Aprendizagem rápida
+          <div class="glitch-border h-fit">
+            <div class="skill-card reveal fade-up" data-icon="" data-focus="3" data-tech="1" data-desc="No início, tive dificuldade para evoluir, mas com o tempo aprendi a pesquisar de forma mais eficiente e hoje absorvo novos conceitos com mais rapidez.">
+              <div class="skill-title">
+                Aprendizagem rápida
+              </div>
             </div>
           </div>
         </div>
@@ -636,18 +698,22 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           
           <div class="star-border" style="--star-radius: 18px">
-            <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.location.href='mailto:felipeaires98@hotmail.com'">
-              <i data-feather="mail" class="contact-icon"></i>
-              <h3 class="contact-title">E-mail Principal</h3>
-              <p class="contact-text">felipeaires98@hotmail.com</p>
+            <div class="glitch-border">
+              <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.location.href='mailto:felipeaires98@hotmail.com'">
+                <i data-feather="mail" class="contact-icon"></i>
+                <h3 class="contact-title">E-mail Principal</h3>
+                <p class="contact-text">felipeaires98@hotmail.com</p>
+              </div>
             </div>
           </div>
 
           <div class="star-border" style="--star-radius: 18px">
-            <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.location.href='mailto:felipeaires2009@gmail.com'">
-              <i data-feather="mail" class="contact-icon"></i>
-              <h3 class="contact-title">E-mail Secundário</h3>
-              <p class="contact-text">felipeaires2009@gmail.com</p>
+            <div class="glitch-border">
+              <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.location.href='mailto:felipeaires2009@gmail.com'">
+                <i data-feather="mail" class="contact-icon"></i>
+                <h3 class="contact-title">E-mail Secundário</h3>
+                <p class="contact-text">felipeaires2009@gmail.com</p>
+              </div>
             </div>
           </div>
 
@@ -659,10 +725,12 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
           <div class="star-border" style="--star-radius: 18px">
-            <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.open('https://wa.me/5511996680081', '_blank')">
-              <i data-feather="smartphone" class="contact-icon"></i>
-              <h3 class="contact-title">Celular e WhatsApp</h3>
-              <p class="contact-text">+55 11 99668-0081</p>
+            <div class="glitch-border">
+              <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.open('https://wa.me/5511996680081', '_blank')">
+                <i data-feather="smartphone" class="contact-icon"></i>
+                <h3 class="contact-title">Celular e WhatsApp</h3>
+                <p class="contact-text">+55 11 99668-0081</p>
+              </div>
             </div>
           </div>
 
@@ -674,18 +742,22 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
           <div class="star-border" style="--star-radius: 18px">
-            <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.open('https://www.linkedin.com/in/felipe-aires-joaquim/', '_blank')">
-              <i data-feather="linkedin" class="contact-icon"></i>
-              <h3 class="contact-title">LinkedIn</h3>
-              <p class="contact-text">Visitar Perfil</p>
+            <div class="glitch-border">
+              <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.open('https://www.linkedin.com/in/felipe-aires-joaquim/', '_blank')">
+                <i data-feather="linkedin" class="contact-icon"></i>
+                <h3 class="contact-title">LinkedIn</h3>
+                <p class="contact-text">Visitar Perfil</p>
+              </div>
             </div>
           </div>
 
           <div class="star-border" style="--star-radius: 18px">
-            <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.open('https://github.com/FelipeOPratinha', '_blank')">
-              <i data-feather="github" class="contact-icon"></i>
-              <h3 class="contact-title">GitHub</h3>
-              <p class="contact-text">Repositórios e Projetos</p>
+            <div class="glitch-border">
+              <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.open('https://github.com/FelipeOPratinha', '_blank')">
+                <i data-feather="github" class="contact-icon"></i>
+                <h3 class="contact-title">GitHub</h3>
+                <p class="contact-text">Repositórios e Projetos</p>
+              </div>
             </div>
           </div>
 
@@ -697,10 +769,12 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
           <div class="star-border" style="--star-radius: 18px">
-            <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.open('https://www.instagram.com/felipe.aires07/', '_blank')">
-              <i data-feather="instagram" class="contact-icon"></i>
-              <h3 class="contact-title">Instagram</h3>
-              <p class="contact-text">@felipe.aires07</p>
+            <div class="glitch-border">
+              <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.open('https://www.instagram.com/felipe.aires07/', '_blank')">
+                <i data-feather="instagram" class="contact-icon"></i>
+                <h3 class="contact-title">Instagram</h3>
+                <p class="contact-text">@felipe.aires07</p>
+              </div>
             </div>
           </div>
 
@@ -712,10 +786,12 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
           <div class="star-border" style="--star-radius: 18px">
-            <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.open('https://www.twitch.tv/felipeopratinha', '_blank')">
-              <i data-feather="tv" class="contact-icon"></i>
-              <h3 class="contact-title">Twitch</h3>
-              <p class="contact-text">felipeopratinha</p>
+            <div class="glitch-border">
+              <div class="contact-card reveal fade-up glass-card cursor-pointer" onclick="window.open('https://www.twitch.tv/felipeopratinha', '_blank')">
+                <i data-feather="tv" class="contact-icon"></i>
+                <h3 class="contact-title">Twitch</h3>
+                <p class="contact-text">felipeopratinha</p>
+              </div>
             </div>
           </div>
 
